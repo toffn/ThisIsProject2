@@ -47,20 +47,24 @@ void loop(){
       analogWrite(GreenLED, greenBrightness);
 
 
+    //Scream red if green
     if (LDRval < 700 && greenBrightness > redBrightness )
     {
         analogWrite(GreenLED, LOW);
         analogWrite(RedLED, 255);
+        //Flash rapidly when touched
         if (LDRval <500)
         {
           analogWrite(RedLED, 5);
           analogWrite(RedLED, 255);
         }
     }
+    //Scream green if red
     else if (LDRval < 700 && greenBrightness < redBrightness )
     {
         analogWrite(RedLED, LOW);
         analogWrite(GreenLED, 255);
+        //Flash rapidly when touched
         if (LDRval <500)
         {
           analogWrite(GreenLED, 5);
